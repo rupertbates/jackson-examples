@@ -11,8 +11,17 @@ public class UnwrappedList {
 
     @JsonCreator
     public UnwrappedList(@JsonProperty("aString") String aString,
-                         @JsonProperty("uselessWrapper") TheList theList) {
+                         @JsonProperty("uselessWrapper") ListWrapperClass theList) {
         this.aString = aString;
         this.theList = theList.theList;
+    }
+
+    public static class ListWrapperClass {
+        public final List<ListItem> theList;
+
+        @JsonCreator
+        public ListWrapperClass(@JsonProperty("theList") List<ListItem> theList) {
+            this.theList = theList;
+        }
     }
 }

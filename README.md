@@ -5,5 +5,5 @@ Current examples:
 * Polymorphism - how to serialise and deserialise a class hierarchy
 * Enums - how to control the json representation of enums
 * How to use the @JsonRootName annotation to unwrap a nested class
-* How to unwrap a nested inner class - this involves creating a java class for the useless wrapper class unfortunately
+* How to unwrap a nested inner class - this involves creating a static inner class for the useless wrapper class
 
