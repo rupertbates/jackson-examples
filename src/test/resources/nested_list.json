@@ -1,0 +1,9 @@
+{
+    "aString" : "a string",
+    "uselessWrapper" : {
+        "theList" : [
+            {"title" : "one"},
+            {"title" : "two"}
+        ]
+    }
+}

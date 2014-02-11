@@ -3,6 +3,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.junit.Assert;
 import org.junit.Test;
+import polymorphism.ArticleItem;
+import polymorphism.Item;
+import polymorphism.TodaysMatchesItem;
 
 import java.io.IOException;
 import java.util.ArrayList;
