@@ -1,9 +1,11 @@
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import polymorphism.ArticleItem;
+import polymorphism.CommentArticleItem;
 import polymorphism.Item;
 import polymorphism.TodaysMatchesItem;
 
@@ -13,6 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 public class TestSerialisation {
     @Test
@@ -21,6 +24,14 @@ public class TestSerialisation {
         ObjectMapper mapper = new ObjectMapper();
         List<Item> items = mapper.readValue(json, TypeFactory.defaultInstance().constructCollectionType(ArrayList.class, Item.class));
         Assert.assertTrue(items.size() == 2);
+    }
+
+    @Test
+    public void testDeserialiseSubTypes() throws IOException {
+        String json = "{\"type\":\"comment\",\"body\":\"Body text\",\"contributor\":\"Polly Toynbee\"}";
+        ObjectMapper mapper = new ObjectMapper();
+        ArticleItem item = mapper.readValue(json, ArticleItem.class);
+        assertTrue(item instanceof CommentArticleItem);
     }
 
     @Test
